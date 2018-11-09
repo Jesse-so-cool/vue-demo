@@ -31,15 +31,18 @@
     <el-button @click="toggleSelection()">取消选择</el-button>
   </div>
   <sl-table :tableKey="tableKey" :tablep="tablep" ></sl-table>
-  <table1 :tableHeader="tableHeader" ></table1>
+  <table1 :tableHeader="tableHeader" :searchInfo="searchInfo" ></table1>
+  <selector :url="'/option'" :value='beijing' :fileType="{'value':'dasm','label':'dasmb'}"></selector>
+
   </div>
 </template>
-
 <script>
 import Table from '../components/tableBox';
 import Table1 from '../components/table1';
+import selector from '../components/selector';
+// v-model="isShow"
   export default {
-    components: {'sl-table': Table,'table1': Table1},
+    components: {'sl-table': Table,'table1': Table1,'selector': selector},
     data() {
       return {
         tableData3: [{
@@ -92,7 +95,17 @@ import Table1 from '../components/table1';
           name: '地址',
           value: 'address',
           width: 400
-          }]
+          }],
+        searchInfo:{
+          url:'/news',
+          data: {
+            pageSize: '',
+            currentPageorderBy: '',
+            tablePropsort: '',
+            sort: ''
+          }
+          
+        },
       }
     },
 
