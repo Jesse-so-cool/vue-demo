@@ -15,7 +15,7 @@
 
 <script>
   export default {
-    name: 'XdhSelect',
+    name: 'selector',
     data() {
       return {
         options:[],
@@ -37,22 +37,23 @@
             return _data;
        }
      },
-     watch:{
-        //判断下拉框的值是否有改变
-        svalue(val, oldVal) {
-            // console.log('new: %s, old: %s', val, oldVal)
-            if(val!=oldVal){
-                console.log(this.svalue);
-                this.$emit('input', this.svalue); 
-            }
-        }, 
-    },
+    //  watch:{
+    //     //判断下拉框的值是否有改变
+    //     svalue(val, oldVal) {
+    //         // console.log('new: %s, old: %s', val, oldVal)
+    //         if(val!=oldVal){
+    //             console.log(this.svalue);
+    //             this.$emit('input', this.svalue); 
+    //         }
+    //     }, 
+    // },
     props: {
        url:{
           type:String
        },//导入的url地址
        value: {
-          type: Object
+         default:'',
+          type:String
        },//接受外部v-model传入的值
        fileType:{
           type:Object
@@ -61,6 +62,7 @@
     mounted(){
         //初始话下拉框的值
         this.svalue=this.value;
+        console.log("svalue:" + this.svalue);
         var obj = this;
         //远程请求回来的数据
         this.$http({

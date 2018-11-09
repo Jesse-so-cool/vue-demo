@@ -32,7 +32,7 @@
   </div>
   <sl-table :tableKey="tableKey" :tablep="tablep" ></sl-table>
   <table1 :tableHeader="tableHeader" :searchInfo="searchInfo" ></table1>
-  <selector :url="'/option'" :value='beijing' :fileType="{'value':'dasm','label':'dasmb'}"></selector>
+  <selector :url="'/option'" :value="svalue" :fileType="{'value':'dasm','label':'dasmb'}"></selector>
 
   </div>
 </template>
@@ -45,6 +45,7 @@ import selector from '../components/selector';
     components: {'sl-table': Table,'table1': Table1,'selector': selector},
     data() {
       return {
+        svalue:'beijing',
         tableData3: [{
           date: '2016-05-03',
           name: '王小虎',
